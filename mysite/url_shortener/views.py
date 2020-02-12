@@ -7,9 +7,15 @@ from django.shortcuts import redirect
 # Create your views here.
 class ShortenerView(View):
 	def get(self, request, **kwargs):
-		if kwargs.get('url_id'):
+		url_id = kwargs.get('url_id')
+		if url_id:
 			# 確認到轉址URL
-			return redirect('https://www.google.com/')
+			this_url_record = UrlRecord.objects.filter(id=url_id).first()
+			if this_url_record:
+				# return redirect('www.google.com')
+				# return redirect('https://www.google.com/')
+				# todo 找出不用加上https的轉網址方法
+				return redirect('https://' + this_url_record.origin_url)
 		return render(request, 'index.html', {'UrlRecordForm': UrlRecordForm()})
 	def post(self, request):
 		form = UrlRecordForm(request.POST)
