@@ -2,7 +2,7 @@ from django.db import models
 
 class UrlRecord(models.Model):
     id = models.AutoField(primary_key=True, verbose_name=u'url id')
-    origin_url = models.CharField(max_length=30, verbose_name=u'縮網址')
+    origin_url = models.URLField(max_length=200, verbose_name=u'縮網址')
     class Meta:
         verbose_name = u'縮網址紀錄'
         verbose_name_plural = verbose_name
