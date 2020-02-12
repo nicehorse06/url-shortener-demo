@@ -1,1 +1,7 @@
-<div>hello jimmy 2/11 </div>
+<div>Jimmy URL Shortener</div>
+
+<form method="post">
+	{{ UrlRecordForm.as_p }}
+	{% csrf_token %}
+	<input class='add' type="submit" value="+添加短網址">
+</form>
