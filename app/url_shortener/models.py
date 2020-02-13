@@ -1,4 +1,5 @@
 from django.db import models
+from mysite.settings import HOSTNAME
 
 class UrlRecord(models.Model):
     id = models.AutoField(primary_key=True, verbose_name=u'url id')
@@ -8,3 +9,8 @@ class UrlRecord(models.Model):
         verbose_name_plural = verbose_name
     def __str__(self):
         return u'縮網址id(%s)對應原始網址(%s)' % (self.id, self.origin_url)
+    
+    @staticmethod
+    def shortener_url(key):
+        # 生成縮網址
+        return HOSTNAME + '\\' + str(key)
