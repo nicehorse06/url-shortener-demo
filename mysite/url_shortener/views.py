@@ -19,23 +19,14 @@ class ShortenerView(View):
 		return render(request, 'index.html', {'UrlRecordForm': UrlRecordForm(), 'info': info})
 	def post(self, request):
 		form = UrlRecordForm(request.POST)
-		print(request.POST)
-		print('000')
-		print(form)
-		print(form.is_valid())
-		print(form.errors)
 		info = ''
-		if form.is_valid():
-			print(1111)
-			
+		if form.is_valid():			
 			# 檢查網址一定要http開頭
 			cleaned_data = form.cleaned_data
 			this_url_record = UrlRecord(origin_url=cleaned_data['origin_url'])
 			this_url_record.save()
-			# todo要回傳新網址
-			# todo 要顯示轉網址結果
-			info = '%s新的短網址為%s' % (this_url_record.origin_url, HOSTNAME+'\\'+ str(this_url_record.id))
+			info = '%s\n新的短網址為\n%s' % (this_url_record.origin_url, HOSTNAME+'\\'+ str(this_url_record.id))
 		else:
-			info = form.errors
+			info = '網址的格式不正確!'
 
 		return self.get(request, info)
