@@ -5,9 +5,9 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile.prod
-    command: gunicorn shop_web.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/home/app/web/static
       - media_volume:/home/app/web/mediafiles
     expose:
       - 8000
@@ -24,10 +24,10 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - static_volume:/home/app/web/staticfiles
+      - static_volume:/home/app/web/static
       - media_volume:/home/app/web/mediafiles
     ports:
-      - 1401:80
+      - 8000:80
     depends_on:
       - web
 

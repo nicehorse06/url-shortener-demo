@@ -17,9 +17,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=shop_web
-      - POSTGRES_PASSWORD=shop_web
-      - POSTGRES_DB=shop_web_dev
+      - POSTGRES_USER=mysite
+      - POSTGRES_PASSWORD=mysite
+      - POSTGRES_DB=mysite_dev
 
 volumes:
   postgres_data:
