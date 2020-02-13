@@ -23,7 +23,7 @@ class ShortenerView(View):
 
 		return render(request, 'index.html', {'UrlRecordForm': UrlRecordForm(), 'info': info})
 
-	def post(self, request):
+	def post(self, request, **kwargs):
 		form = UrlRecordForm(request.POST)
 		info = ''
 		if form.is_valid():			

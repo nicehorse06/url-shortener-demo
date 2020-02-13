@@ -1,17 +1,16 @@
-建構虛擬環境
+## 建構虛擬環境
 python3 -m venv vir_env
 
 ## 可額外新增的功能
 * 用hash來縮網址
 * 給予超連結
 * 複製網址功能
-* 加上密碼
-* docker
-* 新增錯誤網址的提示訊息
+* 加上縮網址密碼
+* 新增錯誤網址(4XX)的提示訊息
+* 更多單元測試
 
 ## ref
 * [django-short-urls](https://github.com/mouradmourafiq/django-short-urls)
-
 
 ## docker 指令
 ### docker compose

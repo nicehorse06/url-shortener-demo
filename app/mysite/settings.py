@@ -27,7 +27,8 @@ DEBUG = os.environ.get("DEBUG", True)
 
 ALLOWED_HOSTS = ['*']
 
-HOSTNAME = os.environ.get('HOSTNAME', '127.0.0.1:8000')
+# 依據情況需要更改，如在docker中
+HOSTNAME = '127.0.0.1:8000' #os.environ.get('HOSTNAME', '127.0.0.1:8000')
 
 # Application definition
 
