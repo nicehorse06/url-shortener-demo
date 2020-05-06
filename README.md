@@ -1,13 +1,19 @@
 # Django URL Shortener demo
 
 * python版本為3.6.8
-* Django版本為2.2.8
+* Django版本為2.2.10
+
+## 功能敘述
+* 輸入合法的網址轉成帶有ID的縮網址
+* 目前不支持網址回收功能，待新增
+* 目前不支持相同網址對應到同一縮網址功能
 
 ## docker 指令
 #### 開發環境部屬
 
 ##### 重啟指令，建立新的containers
 docker-compose up -d --build
+`執行於 http://0.0.0.0:8000/`
 ##### 關閉指令，移除之前建立的containers
 docker-compose down -v
 
@@ -15,6 +21,7 @@ docker-compose down -v
 
 ##### 重啟指令，建立新的containers
 docker-compose -f docker-compose.prod.yml up -d --build
+`執行於 http://0.0.0.0:8000/`
 
 ##### 關閉指令，移除之前建立的containers
 docker-compose -f docker-compose.prod.yml down -v
